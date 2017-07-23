@@ -19,8 +19,10 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class log extends javax.swing.JFrame {
     int x,y;
+    boolean estadoPas=false,estadoUs=false;
     public log() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/icon.png")).getImage());
         this.Incorrecto.setVisible(false);
         this.mayus.setVisible(false);
         this.setLocationRelativeTo(null);
@@ -97,7 +99,7 @@ public class log extends javax.swing.JFrame {
         u.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         u.setForeground(new java.awt.Color(153, 153, 153));
         u.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        u.setText("Admin");
+        u.setText("Usuario");
         u.setBorder(null);
         u.setOpaque(false);
         u.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -116,7 +118,7 @@ public class log extends javax.swing.JFrame {
         p.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         p.setForeground(new java.awt.Color(153, 153, 153));
         p.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        p.setText("root");
+        p.setText("contraseña");
         p.setBorder(null);
         p.setOpaque(false);
         p.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -169,6 +171,7 @@ public class log extends javax.swing.JFrame {
             ResultSet rs=e.consulta(SQL);
             if (rs.next()) {
                 Principal Pr = new Principal();
+                Pr.setIconImage(new ImageIcon(getClass().getResource("/img/icon.png")).getImage());
                 Pr.inicio((int)rs.getObject(1));
                 Pr.getImagen().setIcon(new ImageIcon(getClass().getResource("/img/usuarios/normal/"+rs.getString(4))));
                 Pr.getUsuario().setText(u.getText());
@@ -203,14 +206,20 @@ public class log extends javax.swing.JFrame {
         if (this.p.getText().equals("")) {
             this.p.setText("Password");
         }
-        this.u.setText("");
+        if (!this.estadoUs) {
+            this.u.setText("");
+            this.estadoUs=true;
+        }
     }//GEN-LAST:event_uMouseClicked
 
     private void pMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pMouseClicked
         if (this.u.getText().equals("")) {
             this.u.setText("Usuario");
         }
-        this.p.setText("");
+        if (!this.estadoPas) {
+            this.p.setText("");
+            this.estadoPas=true;
+        }
         boolean capsAtivo = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
         if (capsAtivo) {
             this.mayus.setVisible(capsAtivo);

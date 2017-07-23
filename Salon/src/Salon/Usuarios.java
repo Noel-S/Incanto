@@ -66,7 +66,7 @@ public class Usuarios extends javax.swing.JFrame {
         IMG1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
         Lista = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -129,9 +129,11 @@ public class Usuarios extends javax.swing.JFrame {
 
         PAS.setEditable(false);
         PAS.setBackground(new java.awt.Color(255, 255, 255));
+        PAS.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
         PAS.setForeground(new java.awt.Color(51, 51, 51));
         PAS.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PAS.setBorder(null);
+        PAS.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         PAS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 PASMouseClicked(evt);
@@ -247,6 +249,7 @@ public class Usuarios extends javax.swing.JFrame {
         mayus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/otros/warning.png"))); // NOI18N
         NuevoUs.getContentPane().add(mayus, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 246, -1, -1));
 
+        PAS1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
         PAS1.setForeground(new java.awt.Color(51, 51, 51));
         PAS1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PAS1.setText("Contraseña");
@@ -316,6 +319,7 @@ public class Usuarios extends javax.swing.JFrame {
         Admin.setBorder(null);
         Admin.setBorderPainted(false);
         Admin.setContentAreaFilled(false);
+        Admin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Admin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Admin.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botones/DER_SI.png"))); // NOI18N
         NuevoUs.getContentPane().add(Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 149, 30));
@@ -325,7 +329,8 @@ public class Usuarios extends javax.swing.JFrame {
         IMG1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IMG1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuarios/normal/Rosa M.png"))); // NOI18N
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Imagen", "enamorado", "hombre 1", "hombre 2", "human", "invitado", "mac", "mujer 1", "mujer 2", "mujer 3", "mujer 4", "Rosa M" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "enamorado", "hombre 1", "hombre 2", "human", "invitado", "mac", "mujer 1", "mujer 2", "mujer 3", "mujer 4", "Rosa M" }));
+        jComboBox1.setSelectedIndex(10);
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBox1ItemStateChanged(evt);
@@ -391,7 +396,7 @@ public class Usuarios extends javax.swing.JFrame {
         Lista.setToolTipText("");
         Lista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Lista.setGridColor(new java.awt.Color(255, 255, 255));
-        Lista.setRowHeight(50);
+        Lista.setRowHeight(55);
         Lista.setShowHorizontalLines(false);
         Lista.setShowVerticalLines(false);
         Lista.setTableHeader(null);
@@ -400,9 +405,9 @@ public class Usuarios extends javax.swing.JFrame {
                 ListaMousePressed(evt);
             }
         });
-        jScrollPane2.setViewportView(Lista);
+        jScrollPane1.setViewportView(Lista);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 200, 370));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 200, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -423,7 +428,7 @@ public class Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_EditarActionPerformed
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
-/**/        String SQL="update usuarios set password='"+this.PAS.getText()+"' where nombre='"+this.US.getText()+"';";
+        String SQL="update usuarios set password='"+this.PAS.getText()+"' where nombre='"+this.US.getText()+"';";
         if (con.insertSQL(SQL)==1) {
             JOptionPane.showMessageDialog(null, "El usuario se ha modificado con exito.","SUCESS",JOptionPane.INFORMATION_MESSAGE);
         }else{
@@ -436,7 +441,7 @@ public class Usuarios extends javax.swing.JFrame {
         if(this.Admin.isSelected()){
             tipo=1;
         }
-        String SQL="insert into usuarios values("+tipo+",'"+this.US1.getText()+"','"+this.PAS.getText()+"','"+this.jComboBox1.getSelectedItem()+".png');";
+        String SQL="insert into usuarios values("+tipo+",'"+this.US1.getText()+"','"+this.PAS1.getText()+"','"+this.jComboBox1.getSelectedItem()+".png');";
         if (con.insertSQL(SQL)==1) {
             JOptionPane.showMessageDialog(null, "El usuario se ha registrado con exito.","SUCESS",JOptionPane.INFORMATION_MESSAGE);
         }else{
@@ -508,7 +513,7 @@ public class Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-/**/        String SQL="delete from usuarios where nombre='"+this.Lista.getValueAt(this.Lista.getSelectedRow(), 1)+"';";
+        String SQL="delete from usuarios where nombre='"+this.Lista.getValueAt(this.Lista.getSelectedRow(), 1)+"';";
         if (JOptionPane.showConfirmDialog(null, "Eliminar al usuario: "+this.Lista.getValueAt(this.Lista.getSelectedRow(), 1), "ELIMINAR", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION) {
             if (con.insertSQL(SQL)==1) {
                 JOptionPane.showMessageDialog(null, "El usuario se ha eliminado con exito.","SUCESS",JOptionPane.INFORMATION_MESSAGE);
@@ -565,7 +570,7 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel mayus;
     private javax.swing.JLabel mayus1;
@@ -576,15 +581,15 @@ public class Usuarios extends javax.swing.JFrame {
         try {
             ResultSet rs=con.consulta(SQL);
             
-            DefaultTableModel modelo=(DefaultTableModel)this.Lista.getModel();
+            DefaultTableModel modelo=new DefaultTableModel()/*)this.Lista.getModel()*/;
             this.Lista.setDefaultRenderer(Object.class, new ImgTable());
             this.Lista.setModel(modelo);
-            
+            modelo.setColumnCount(2);
             while(rs.next()){
                 Object[] filas=new Object[modelo.getColumnCount()];
                 for (int k = 0; k <modelo.getColumnCount(); k++) {
                     if (k==0) {
-/**/                        filas[k]=new JLabel(new ImageIcon(getClass().getResource("/img/usuarios/small/"+(String)rs.getObject(4))));
+                        filas[k]=new JLabel(new ImageIcon(getClass().getResource("/img/usuarios/small/"+(String)rs.getObject(4))));
                     }else{
                         filas[k]=rs.getObject(k+1);
                     }
@@ -602,7 +607,7 @@ public class Usuarios extends javax.swing.JFrame {
             if (rs.next()) {
                 this.US.setText((String)rs.getObject(2));
                 this.PAS.setText((String)rs.getObject(3));
-/**/                this.IMG.setIcon(new ImageIcon(getClass().getResource("/img/usuarios/normal/"+rs.getObject(4))));
+                this.IMG.setIcon(new ImageIcon(getClass().getResource("/img/usuarios/normal/"+rs.getObject(4))));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);

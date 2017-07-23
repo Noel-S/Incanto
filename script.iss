@@ -5,7 +5,7 @@
 ; NOTE: The value of AppId uniquely identifies this application.
 ; Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{D73296BB-F54C-42AF-AC6A-6596B217464D}
+AppId={{3A8BA39F-C6CA-4E66-8038-287F4DDCDB89}
 AppName=Incanto
 AppVersion=1.5
 ;AppVerName=Incanto 1.5
@@ -14,10 +14,11 @@ AppPublisherURL=http://github.com/Noel-S
 AppSupportURL=http://github.com/Noel-S
 AppUpdatesURL=http://github.com/Noel-S
 DefaultDirName={pf}\Incanto
-DisableProgramGroupPage=yes
-OutputDir=C:\Users\Usuario\Desktop\dist
+DefaultGroupName=Incanto
+AllowNoIcons=yes
+OutputDir=C:\Users\Usuario\Desktop\Incanto
 OutputBaseFilename=Incanto SetUp
-SetupIconFile=C:\Users\Usuario\Downloads\Setup.ico
+SetupIconFile=C:\Users\Usuario\Desktop\Incanto\SetUp.ico
 Compression=lzma
 SolidCompression=yes
 
@@ -29,12 +30,12 @@ Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\Usuario\Desktop\dist\Incanto.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Usuario\Desktop\dist\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\Usuario\Desktop\Incanto\Incanto.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Usuario\Desktop\Incanto\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{commonprograms}\Incanto"; Filename: "{app}\Incanto.exe"
+Name: "{group}\Incanto"; Filename: "{app}\Incanto.exe"
 Name: "{commondesktop}\Incanto"; Filename: "{app}\Incanto.exe"; Tasks: desktopicon
 
 [Run]

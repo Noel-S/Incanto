@@ -24,7 +24,7 @@ public class PBar extends javax.swing.JFrame {
             Barra.setValue(x);
             if (x==25) {
                 Mensaje.setText("Creando Reporte Citas");
-                //new CrearReporte("Citas").pdf(d);
+                new CrearReporte("Citas").pdf(d);
             }
             if (x==50) {
                 Mensaje.setText("Creando Reporte Ventas");

@@ -70,7 +70,6 @@ public class Principal extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
         jToggleButton3 = new javax.swing.JToggleButton();
-        CumpleañosLbl = new javax.swing.JLabel();
         vClientes = new javax.swing.JInternalFrame();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -183,6 +182,7 @@ public class Principal extends javax.swing.JFrame {
 
         Incanto.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         Incanto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.png"))); // NOI18N
+        Incanto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Incanto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 IncantoMouseClicked(evt);
@@ -403,10 +403,10 @@ public class Principal extends javax.swing.JFrame {
         PaginaPrincipal.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         buttonGroup2.add(jToggleButton1);
-        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Cliente.png"))); // NOI18N
+        jToggleButton1.setFont(new java.awt.Font("Neon 80s", 0, 24)); // NOI18N
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/CCCC.png"))); // NOI18N
         jToggleButton1.setText("Clientes");
-        jToggleButton1.setBorder(null);
-        jToggleButton1.setBorderPainted(false);
+        jToggleButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
         jToggleButton1.setContentAreaFilled(false);
         jToggleButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -414,13 +414,13 @@ public class Principal extends javax.swing.JFrame {
                 jToggleButton1ActionPerformed(evt);
             }
         });
-        PaginaPrincipal.getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 130, 200, 100));
+        PaginaPrincipal.getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 230, 200, 130));
 
         buttonGroup2.add(jToggleButton2);
-        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/abonarCliente.png"))); // NOI18N
+        jToggleButton2.setFont(new java.awt.Font("Neon 80s", 0, 24)); // NOI18N
+        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dinero.png"))); // NOI18N
         jToggleButton2.setText("Ventas");
-        jToggleButton2.setBorder(null);
-        jToggleButton2.setBorderPainted(false);
+        jToggleButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
         jToggleButton2.setContentAreaFilled(false);
         jToggleButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jToggleButton2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -429,26 +429,23 @@ public class Principal extends javax.swing.JFrame {
                 jToggleButton2ActionPerformed(evt);
             }
         });
-        PaginaPrincipal.getContentPane().add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 190, 100));
+        PaginaPrincipal.getContentPane().add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 200, 130));
 
         buttonGroup2.add(jToggleButton3);
-        jToggleButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Cliente.png"))); // NOI18N
+        jToggleButton3.setFont(new java.awt.Font("Neon 80s", 0, 24)); // NOI18N
+        jToggleButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Tiempo.png"))); // NOI18N
         jToggleButton3.setText("Citas");
-        jToggleButton3.setBorderPainted(false);
+        jToggleButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
         jToggleButton3.setContentAreaFilled(false);
         jToggleButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jToggleButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jToggleButton3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jToggleButton3.setIconTextGap(13);
         jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton3ActionPerformed(evt);
             }
         });
-        PaginaPrincipal.getContentPane().add(jToggleButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, 190, 100));
-
-        CumpleañosLbl.setFont(new java.awt.Font("Neon 80s", 0, 24)); // NOI18N
-        CumpleañosLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PaginaPrincipal.getContentPane().add(CumpleañosLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, 1140, 120));
+        PaginaPrincipal.getContentPane().add(jToggleButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 230, 200, 130));
 
         getContentPane().add(PaginaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1420, 650));
 
@@ -1355,7 +1352,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MousePressed
 
     private void buscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarClienteActionPerformed
-        mostrarTabla("SELECT id, nombre, apellidos FROM clientes WHERE nombre like '%"+this.buscarCliente_nombre.getText()+"%' AND apellidos like'%"+this.buscarCliente_apellidos.getText()+"%';");
+        mostrarTabla("SELECT id, nombre, apellidos, cumpleaños FROM clientes WHERE nombre like '%"+this.buscarCliente_nombre.getText()+"%' AND apellidos like'%"+this.buscarCliente_apellidos.getText()+"%';");
         this.buscarCliente_nombre.setText("");
         this.buscarCliente_apellidos.setText("");
     }//GEN-LAST:event_buscarClienteActionPerformed
@@ -1439,7 +1436,6 @@ public class Principal extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         this.mesCita.setSelectedIndex(this.today.getMonth());
         this.CitaVisitante.setVisible(true);
     }//GEN-LAST:event_nCitaActionPerformed
@@ -1496,7 +1492,6 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_Actializar1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //new CrearReporte().pdfChooser(fecha(this.today));
         new CrearReporte("Clientes").pdf(fecha(this.today));
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -1509,7 +1504,6 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_minutosKeyTyped
 
     private void registrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrar1ActionPerformed
-        //// cita en nuevo frame
         Cita c = new Cita(
             this.nom_cita.getText(),
             this.ape_cita.getText(),
@@ -1537,7 +1531,6 @@ public class Principal extends javax.swing.JFrame {
     if (evt.getKeyCode() == KeyEvent.VK_ENTER){
         Object src = evt.getSource();
         this.buscarClienteActionPerformed(new ActionEvent(src,ActionEvent.ACTION_PERFORMED, "Enter"));
-        //Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(new ActionEvent(src,ActionEvent.ACTION_PERFORMED, "Enter"));
     }
     }//GEN-LAST:event_buscarCliente_apellidosKeyPressed
 
@@ -1612,7 +1605,6 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_BuscaRegistrosActionPerformed
 
     private void verReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verReporteActionPerformed
-        //this.frame.setVisible(true);
         try {
             setup();
         } catch (IOException ex) {
@@ -1648,7 +1640,6 @@ public class Principal extends javax.swing.JFrame {
 
     private void tablaVentasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVentasMousePressed
         this.eliminarVenta.setEnabled(true);
-/**/        //this.modificarVenta.setEnabled(true);
     }//GEN-LAST:event_tablaVentasMousePressed
 
     private void eliminarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarVentaActionPerformed
@@ -1737,7 +1728,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JInternalFrame CitaVisitante;
     private javax.swing.JButton Citas_b;
     private javax.swing.JButton Clientes_b;
-    private javax.swing.JLabel CumpleañosLbl;
     private javax.swing.JComboBox<String> Hora;
     private javax.swing.JLabel ImgenUs;
     private javax.swing.JLabel Incanto;
@@ -1861,8 +1851,7 @@ public class Principal extends javax.swing.JFrame {
         this.Ventas.setVisible(false);
         this.Servicios.setVisible(false);
         this.vClientes.setVisible(true);
-        //id, nombre, apellidos
-        mostrarTabla("SELECT id, nombre, apellidos FROM clientes;");
+        mostrarTabla("SELECT id, nombre, apellidos, cumpleaños FROM clientes;");
     }
     public void mostrarVentas(){
         this.Ventas_b.setEnabled(false);
@@ -1879,8 +1868,8 @@ public class Principal extends javax.swing.JFrame {
         this.Ventas.setVisible(true);
         mostrarTablaV("select * from ventas where fecha='"+this.fecha(today)+"';");
     }
+    
     public void mostrarCitas(){
-        //Botones
         this.Clientes_b.setEnabled(true);
         this.Ventas_b.setEnabled(true);
         this.Inventario_b.setEnabled(true);
@@ -1895,8 +1884,8 @@ public class Principal extends javax.swing.JFrame {
         this.vCitas.setVisible(true);
         mostrarTablac("SELECT * FROM citas WHERE fecha='"+fecha(this.today)+"';");
     }
+    
     private void mostrarServicios() {
-        //Botones
         this.Clientes_b.setEnabled(true);
         this.Ventas_b.setEnabled(true);
         this.Citas_b.setEnabled(true);
@@ -1911,14 +1900,16 @@ public class Principal extends javax.swing.JFrame {
         this.Servicios.setVisible(true);
         mostrarTablaS("SELECT * FROM servicios;");
     }
-    public void validarLetras(java.awt.event.KeyEvent evt){/////////////////////////////////////////////////////////
+    
+    public void validarLetras(java.awt.event.KeyEvent evt){
         char c=evt.getKeyChar();
         if(Character.isDigit(c)) {
             getToolkit().beep();
             evt.consume();
         } 
     }
-    public void validarNumeros(java.awt.event.KeyEvent evt){////////////////////////////////////////////////////////////////
+    
+    public void validarNumeros(java.awt.event.KeyEvent evt){
         char c=evt.getKeyChar();
         if(Character.isLetter(c)) {
             getToolkit().beep();
@@ -1945,7 +1936,6 @@ public class Principal extends javax.swing.JFrame {
                 Object[] filas=new Object[modelo.getColumnCount()];
                 for (int k = 0; k <modelo.getColumnCount(); k++) {
                     if (k==0) {
-                        //if(genero masculino o femenino){}
                         filas[k]=new JLabel(new ImageIcon(getClass().getResource("/img/usuario4.png"))); 
                     }else{
                         filas[k]=rs.getObject(k);
@@ -1957,8 +1947,8 @@ public class Principal extends javax.swing.JFrame {
             Logger.getLogger(log.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     private void mostrarTabla(String SQL) {
-        //String SQL = "SELECT id, nombre, apellidos FROM clientes;";
         try {
             ResultSet rs=con.consulta(SQL);
             ResultSetMetaData rsm=rs.getMetaData();
@@ -1968,17 +1958,19 @@ public class Principal extends javax.swing.JFrame {
             this.jTable1.setDefaultRenderer(Object.class, new ImgTable());
             this.jTable1.setModel(modelo);
             modelo.addColumn("IMG");
-            for (int i = 1; i <= ncol; i++) {
+            for (int i = 1; i <= (ncol-1); i++) {
                 modelo.addColumn(rsm.getColumnLabel(i).toUpperCase()); 
             }
             this.jTable1.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(100);//img
-            this.jTable1.getTableHeader().getColumnModel().getColumn(1).setMinWidth(30);//id
+            this.jTable1.getTableHeader().getColumnModel().getColumn(1).setMaxWidth(40);//id
             
             while(rs.next()){
                 Object[] filas=new Object[modelo.getColumnCount()];
                 for (int k = 0; k <modelo.getColumnCount(); k++) {
                     if (k==0) {
-                        if (rs.getObject(6).equals(fecha(this.today))) {
+                        Date d=(Date)rs.getObject(4);
+                        SimpleDateFormat SDF=new SimpleDateFormat("MM-dd");
+                        if (SDF.format(d).equals(SDF.format(this.today))) {
                             filas[k]=new JLabel(new ImageIcon(getClass().getResource("/img/Regalo.png"))); 
                         }else{
                             filas[k]=new JLabel(new ImageIcon(getClass().getResource("/img/usuario4.png"))); 
@@ -1993,6 +1985,7 @@ public class Principal extends javax.swing.JFrame {
             Logger.getLogger(log.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     private String fecha(Date d){
         SimpleDateFormat df=new SimpleDateFormat("YYYY-MM-dd");
         return df.format(d);
@@ -2007,6 +2000,7 @@ public class Principal extends javax.swing.JFrame {
     public JLabel getUsuario() {
         return Usuario;
     }
+    
     public JLabel getImagen() {
         return this.ImgenUs;
     }
@@ -2035,6 +2029,7 @@ public class Principal extends javax.swing.JFrame {
             Logger.getLogger(log.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     private void AnimMenu(int id){
         if (id==0) {
             if (!this.estadoMenu) {
@@ -2083,7 +2078,7 @@ public class Principal extends javax.swing.JFrame {
     public void setup() throws IOException {
         contRep=1;
         String Dir="C:\\Users\\"+System.getProperty("user.name")+"\\Documents\\Incanto Reportes\\Ventas\\"+this.año.getValue()+"\\"+mes()+"\\"+this.ListaReportes.getSelectedValue();
-        File file = new File(Dir);//"/home/noel/Documentos/Prueba/"+this.año.getValue()+"/"+mes()+"/"+this.ListaReportes.getSelectedValue()
+        File file = new File(Dir);
         RandomAccessFile raf = new RandomAccessFile(file, "r");
         FileChannel channel = raf.getChannel();
         ByteBuffer buf = channel.map(FileChannel.MapMode.READ_ONLY, 0, channel.size());
@@ -2110,7 +2105,7 @@ public class Principal extends javax.swing.JFrame {
             while(rs.next()){
                 Object[] filas=new Object[modelo.getColumnCount()];
                 for (int k = 0; k <ncol; k++) {
-                    filas[k]=rs.getObject(k+1);///////////////////////////// k+1 par sin imagen
+                    filas[k]=rs.getObject(k+1);
                 }
                 modelo.addRow(filas);
             }
@@ -2120,12 +2115,12 @@ public class Principal extends javax.swing.JFrame {
     }    
     
     private void mostrarTablaV(String SQL) {
-        this.jScrollPane5.getVerticalScrollBar().setUnitIncrement(-16);//velocidad del scroll
+        this.jScrollPane5.getVerticalScrollBar().setUnitIncrement(-16);
         try {
             ResultSet rs=con.consulta(SQL);
             ResultSetMetaData rsm=rs.getMetaData();
             int ncol=rsm.getColumnCount();
-            DefaultTableModel modelo=new DefaultTableModel();
+            DefaultTableModel modelo=new DefaultTableModel();//
             this.tablaVentas.setModel(modelo);
             for (int i = 1; i <= ncol; i++) {
                 modelo.addColumn(rsm.getColumnLabel(i).toUpperCase()); 
@@ -2135,14 +2130,15 @@ public class Principal extends javax.swing.JFrame {
             while(rs.next()){
                 Object[] filas=new Object[modelo.getColumnCount()];
                 for (int k = 0; k <ncol; k++) {
-                    filas[k]=rs.getObject(k+1);///////////////////////////// k+1 par sin imagen
+                    filas[k]=rs.getObject(k+1);
                 }
                 modelo.addRow(filas);
             }
         } catch (SQLException ex) {
             Logger.getLogger(log.class.getName()).log(Level.SEVERE, null, ex);
         } 
-    }   
+    }
+    
     public void inicio(int tipo){
         String SQL = "DELETE FROM citas WHERE fecha<'"+fecha(this.today)+"'";
         try {
@@ -2162,4 +2158,3 @@ public class Principal extends javax.swing.JFrame {
         }
     }
 }
-//INSERT INTO citas VALUES('Nombre','Apellidos','Asunto','2017-05-01','02:30');

@@ -2,7 +2,6 @@ package Salon;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
@@ -14,10 +13,7 @@ import java.util.logging.Logger;
  */
 public class verCl extends javax.swing.JPanel {
     int id;
-    SimpleDateFormat df=new SimpleDateFormat("YYYY-MM-dd");
-    /**
-     * Creates new form verCl
-     */
+    
     public verCl() {
         initComponents();
     }
@@ -211,21 +207,15 @@ public class verCl extends javax.swing.JPanel {
                 this.Label_apellidosCliente.setText(rs.getObject(3).toString());
                 this.Label_telefonoCliente.setText(rs.getObject(4).toString());
                 this.Label_correoCliente.setText(rs.getObject(5).toString());
-                this.Label_cumpleaños.setText(fecha(rs.getObject(6).toString()));
+                this.Label_cumpleaños.setText(fecha((Date)rs.getObject(6)));
                 this.Label_deuda.setText(rs.getObject(7).toString());
             }
         } catch (SQLException ex) {
             Logger.getLogger(log.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public String fecha(String f){
-        Date d;
+    private String fecha(Date d){
         SimpleDateFormat letra=new SimpleDateFormat("dd MMMM, YYY");
-        try{
-            d=this.df.parse(f);
-        }catch(ParseException e){
-            return f;
-        }
         return letra.format(d);
     }
 }
